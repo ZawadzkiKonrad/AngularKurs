@@ -1,0 +1,77 @@
+<p>test works!SSSSSSSSSSSSSSssss</p>
+<h1>elOO</h1>
+<b>Dni tygodnia:</b>
+<ul>
+    <li *ngFor="let day of days;let i=index">
+                                                                 <!-- index do podpisania ktore przejscie petli -->
+        <p *ngIf="(i+1)%2==0">{{i+1}}: {{day}}</p>
+    </li>
+</ul>
+
+<ul>
+    <ng-container *ngFor="let day of days;let i=index">
+                                                                      <!-- ng-container gdy masz ostylowane <div> <p> itp. -->
+        <li *ngIf="(i+1)%2==0">{{i+1}}: {{day}}</li>
+    </ng-container>
+</ul>
+<div *ngIf="dogs.length>0;else noDogs">                               <!-- jesli nie ma pieskow - wyswietl znacznik o nazwie noDogs -->
+    <div *ngIf="dogs.length>0">
+        <div *ngFor="let dog of dogs">
+            Mój pies ma na imie {{dog.name}} i ma {{dog.age}} lat.
+        </div>
+    </div>
+</div>
+<ng-template #noDogs>                                                <!-- po # dajemy nazwe danego znacznika i mozemy odwolac sie do niego w else -->
+     <p>Nie ma zadnych psów </p>
+</ng-template>
+<button (click)="addDogs()">Dodaj</button>
+<button (click)="removeDogs()">Usuń</button>
+
+<h1>------------------------------------------------------------------------------------------</h1>
+                                                                      <!-- Switch - tutaj do tlumaczenia na niemiecki -->
+<p>dni tygodnia po niemiecku:</p>
+<div *ngFor="let day of days">
+    <div [ngSwitch]="day">
+        <div *ngSwitchCase="'Poniedzialek'">{{day}} = Montag</div>
+        <div *ngSwitchCase="'Wtorek'">{{day}} = Dienstag</div>
+        <div *ngSwitchCase="'Sroda'">{{day}} = Mittwoch</div>
+        <div *ngSwitchCase="'Czwartek'">{{day}} = Donnerstag</div>
+        <div *ngSwitchCase="'Piatek'">{{day}} = Freitag</div>
+        <div *ngSwitchCase="'Sobota'">{{day}} = Samstag</div>
+        <div *ngSwitchDefault>DOMYŚLNY</div>                            <!-- tu domyslny switch -->
+
+
+
+    </div>
+
+</div>
+<h1>-------------------------------------------------------------------------------------------</h1>
+                                                                        <!-- NGIF usuwa elementy, a hidden ukrywa -->
+<p>Dni tygodnia, uzycie NgIF</p>
+<ng-container *ngIf="isVisible">
+    <div *ngFor="let day of days">
+        <div>{{day}}</div>
+    </div>
+</ng-container>
+<button (click)="show()">NgIf</button>
+<br>
+<p>Dni tygodnia, uzycie HIDDEN</p>
+<div [hidden]="isHidden">
+    <div *ngFor="let day of days">
+        <div>{{day}}</div>
+    </div>
+</div>
+<button (click)="hidden()">Hidden</button>
+<h1>-------------------------------------------------------------------------------------------</h1>
+
+<div>
+    <input [value]="inputText">
+</div>
+<div>
+<input [(ngModel)]="inputText2Way">      <!-- Podwojne bindowanie, czyli przypisywanie do danej zmiennej -->
+    {{inputText2Way}}
+</div>
+<div><input (click)="click()">
+<button [disabled]="button">dodaj</button> <!-- blokowanie przycisku poprzez zmienna button -->
+{{showClick}}
+</div>

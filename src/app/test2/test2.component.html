@@ -1,0 +1,20 @@
+<h3 [className]="colorClass">seses</h3>
+<img [src]="lgoUrl">
+<input [value]="inputText2"[maxLength]="maxLength">
+<button [disabled]="isDisable" (click)="change()">Zmień klase tekstu, url obrazka, text inputu i jego max dlugosc</button>
+<br>
+_________________________________________________________________________________________________________________________
+<br><br>
+<input  [disabled]="isDisable" (focus)="onFocus()">
+<br>
+<input [disabled]="isDisable" (click)="onClick($event)">
+<br>
+<input [disabled]="isDisable" (mousemove)="onMouseMove($event)">
+<br>
+<input id="input" [ngModel]="inputText3" [disabled]="isDisable" [value]="inputText3" >
+<br>
+{{inputText2}}
+<br>
+<button  (click)="change2()" >Odblokuj Disabled</button>
+
+
