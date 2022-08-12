@@ -5,16 +5,26 @@
 <br>
 _________________________________________________________________________________________________________________________
 <br><br>
+<h1 [className]="colorClass">KOLOR CLASS</h1>
 <input  [disabled]="isDisable" (focus)="onFocus()">
 <br>
 <input [disabled]="isDisable" (click)="onClick($event)">
 <br>
 <input [disabled]="isDisable" (mousemove)="onMouseMove($event)">
 <br>
-<input id="input" [ngModel]="inputText3" [disabled]="isDisable" [value]="inputText3" >
+<input  [ngModel]="inputText3" (paste)="onPaste()" [value]="inputText3" >
 <br>
 {{inputText2}}
 <br>
 <button  (click)="change2()" >Odblokuj Disabled</button>
 
+<br>
+--------------------------------------------------------------------------------------------------------------------------
+<h3> Angular kurs - property binding</h3>
+<p> Ten pracownik to {{profession}}, a jego umiejetnosc to {{skill}}</p>
 
+<label for="male">Zawód</label>
+<input [value]="profession"(input)="saveP($event)">
+<br>
+<label for="male">Umiejetnosci</label>
+<input [value]="skill" [(ngModel)]="skill">

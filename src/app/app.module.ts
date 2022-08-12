@@ -9,14 +9,16 @@ import { TestComponent } from './test/test.component';
 import { Test2Component } from './test2/test2.component';
 import { Test3Component } from './test3/test3.component';
 import { FormGroupComponent } from './FormGroup/FormGroup.component';
+import { ChildComponent } from './child/child.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     TestComponent,
       Test2Component,
       Test3Component,
-      FormGroupComponent
+      FormGroupComponent,
+      ChildComponent
    ],
   imports: [
     BrowserModule,

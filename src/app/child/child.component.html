@@ -1,0 +1,4 @@
+<li *ngFor="let task of tasks">
+  {{task}}<br>
+  <button (click)="select(task)">Zaznacz</button>    <!-- select(task)  do @output() przenoszenia z komponentu podrzednego do nadrzednego  -->
+</li>

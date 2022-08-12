@@ -1,0 +1,53 @@
+z nadrzednego kontrolera(test3.component.ts)<br>
+<app-child [tasks]="tasksImport"(eventTask)="selected($event)"></app-child>       <!-- poprzez @input() ([tasks]=) mozemy przekazywac dane z komponentu nadrzednego do dziecka(ten ktory jest zagniezdzony w komponencie) poprzez @Output() (eventTask)="selected($event)" - na odwrot z widoku do nadrzednego kontrolera -->
+
+
+
+
+<br>z wlasnego kontrolera(child.compnent.ts)
+
+<app-child ></app-child>                                  <!-- tutaj bez przekazania danych - pobiera ze swojego kntrolera -->
+
+
+
+<div>
+  <div class="container">
+    <div>
+      <input [(ngModel)]="newTask">
+      <button (click)="add()">Dodaj</button>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+<ng-template #noTasks>
+  Nie masz zadań!                                                <!-- po # dajemy nazwe danego znacznika i mozemy odwolac sie do niego w if/else -->
+
+</ng-template>
+
+  <div *ngIf="tasksList.length>0;else noTasks"> Lista zadań
+    <ul>
+      <li *ngFor="let task of tasksList;let i=index">
+        {{task}}
+        <button (click)="remove(task,i)">Usuń</button>
+        <button (click)="done(task,i)">Zrobione</button>
+
+      </li>
+    </ul>
+  </div>
+
+
+
+
+  <div>Zadania wykonane({{doneList.length}}):
+    <ul>
+      <li *ngFor="let task of doneList">
+        {{task}}
+
+      </li>
+    </ul>
+  </div>
+</div>

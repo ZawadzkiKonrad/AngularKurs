@@ -39,7 +39,8 @@ export class FormGroupComponent implements OnInit {
 
     setTimeout(()=>
     {
-      this.inputText2='';                                         //po 3 sekundach tekst znow bedzie pusty
+      this.inputText2='';
+      this.first.reset();                                         //po 3 sekundach tekst znow bedzie pusty i value inputu tez
     },3000);
 
 

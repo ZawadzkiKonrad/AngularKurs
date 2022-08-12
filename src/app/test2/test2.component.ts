@@ -62,12 +62,24 @@ export class Test2Component implements OnInit {
 
   onPaste(){
     this.inputText2='Nie wklejaj tylko napisz!!';
-    this.inputText3='';
-    //var input= document.getElementById("input");
 
-    //input=null;
 
   }
+
+
+
+  profession='programista';
+  skill='Angular';
+
+  saveP(event:Event){
+    const target=event.target as HTMLTextAreaElement;       //pobieranie z eventu danego tesktu w inpucie i przypisywanie do zmiennej dynamicznie(mozna to zrobic ngModel)
+    this.profession=target.value;
+  }
+  // saveS(event:Event){
+  //   const target=event.target as HTMLTextAreaElement;
+  //   this.skill=target.value;
+  // }
+
   ngOnInit() {
   }
 
